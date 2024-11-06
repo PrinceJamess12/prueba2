@@ -7,12 +7,16 @@ const routes: Routes = [
     loadChildren: () => import('./home/home.module').then( m => m.HomePageModule)
   },
   {
-    path: '',
+    path: 'xx',
     redirectTo: 'home',
     pathMatch: 'full'
   },
   {
     path: 'iniciar-sesionprueba',
+    loadChildren: () => import('./iniciar-sesionprueba/iniciar-sesionprueba.module').then( m => m.IniciarSesionpruebaPageModule)
+  },
+  {
+    path: '',
     loadChildren: () => import('./iniciar-sesionprueba/iniciar-sesionprueba.module').then( m => m.IniciarSesionpruebaPageModule)
   },
   {

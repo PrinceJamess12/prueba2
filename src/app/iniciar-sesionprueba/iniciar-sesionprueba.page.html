@@ -1,16 +1,17 @@
 <ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>iniciar-sesionprueba</ion-title>
-  </ion-toolbar>
+
 </ion-header>
 
 <ion-content [fullscreen]="true">
   <ion-grid>
-    <ion-row>
-      <ion-col size="12">
+    <ion-row class="ion-justify-content-center">
+      <ion-col size="12" size-md="6">
         <ion-card>
           <ion-card-header>
-            <ion-card-title>
+            <div class="ion-text-center">
+              <img src="assets/imgs/welcome.png" alt="Bienvenido" class="welcome-image">
+            </div>
+            <ion-card-title class ="ion-text-center">
               Bienvenido
             </ion-card-title> 
           </ion-card-header> 
@@ -19,12 +20,12 @@
                 <ion-grid>
                   <ion-row>
                     <ion-col>
-                      <ion-input formControlName="usuario" label="Ingrese su usuario" labelPlacement="floating" fill="outline" type="text"></ion-input> 
+                      <ion-input formControlName="usuario" value="michaelw" label="Usuario" labelPlacement="floating" fill="outline" type="text"></ion-input> 
                     </ion-col> 
                   </ion-row>
                   <ion-row>
                     <ion-col>
-                      <ion-input formControlName="contrasenia" label="Ingrese su contraseña" labelPlacement="floating" fill="outline" type="password"></ion-input> 
+                      <ion-input formControlName="contrasenia" value="michaelwpass"label="Contraseña" labelPlacement="floating" fill="outline" type="password"></ion-input> 
                     </ion-col> 
                   </ion-row>
                   <ion-row>

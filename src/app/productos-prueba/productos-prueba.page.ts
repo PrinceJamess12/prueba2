@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { PruebaService } from '../servicio/producto/prueba.service';
 
 @Component({
   selector: 'app-productos-prueba',
@@ -6,10 +7,23 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./productos-prueba.page.scss'],
 })
 export class ProductosPruebaPage implements OnInit {
+  lProductos:any=[]
 
-  constructor() { }
+  constructor(
+    private pro: PruebaService
+  ) { }
+  
 
   ngOnInit() {
+   this.cargandoProducto(0)
+  }
+  cargandoProducto(suma:number){
+    this.pro.avanzar(suma)
+    this.pro.producto.subscribe(nuevoValor => {
+      console.log (nuevoValor)
+      this.lProductos=nuevoValor
+    })
+    this.pro.listarProductos()
   }
 
 }

@@ -10,6 +10,7 @@ import {ServiceService} from './../auth/service.service';
 })
 export class PruebaService {
   private readonly URL_PRODUCTOS = 'https://dummyjson.com/auth/products';
+  //private readonly URL_PRODUCTOS = 'https://dummyjson.com/products';
   private saltar = 0;
   private cantidad = 10;
   private total = 0;
@@ -21,28 +22,17 @@ export class PruebaService {
     private auth: ServiceService
   ) { }
 
+  public avanzar(suma:number){
+    this.saltar=this.saltar+suma
+    if (this.saltar<0) this.saltar=0
+  }
   public listarProductos(){
-    const url_nueva = `${this.URL_PRODUCTOS}?limit=${this.cantidad}&skip=0`;
-    this.http.get<ProductoRespuestaPrueba>(url_nueva, {
-      headers: {
-        'Authorization': "Bearer "+this.auth.accessToken,
-        'Content-Type': 'application/json'
-      }
-    })
-    .subscribe(datos => {
-        this.$producto.next(datos.products);
-        this.total = datos.total;
-
-    });
-  }
-
-  public siguientesProductos(){
-    this.saltar = this.saltar + this.cantidad;
     const url_nueva = `${this.URL_PRODUCTOS}?limit=${this.cantidad}&skip=${this.saltar}`;
     this.http.get<ProductoRespuestaPrueba>(url_nueva, {
       headers: {
+        'Content-Type': 'application/json',
         'Authorization': "Bearer "+this.auth.accessToken,
-        'Content-Type': 'application/json'
+  
       }
     })
     .subscribe(datos => {
@@ -52,26 +42,7 @@ export class PruebaService {
     });
   }
 
-  public productosAnterior(){
-    const resta = this.saltar - this.cantidad;
-    if(resta < 0){
-      this.saltar = 0;
-    }
-    else{
-      this.saltar = this.saltar - this.cantidad
-    }
-    this.saltar = this.saltar + this.cantidad;
-    const url_nueva = `${this.URL_PRODUCTOS}?limit=${this.cantidad}&skip=${this.saltar}`;
-    this.http.get<ProductoRespuestaPrueba>(url_nueva, {
-      headers: {
-        'Authorization': "Bearer "+this.auth.accessToken,
-        'Content-Type': 'application/json'
-      }
-    })
-    .subscribe(datos => {
-        this.$producto.next(datos.products);
-        this.total = datos.total;
 
-    });
-  }
+
+ 
 }
