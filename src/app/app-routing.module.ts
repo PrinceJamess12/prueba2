@@ -15,6 +15,10 @@ const routes: Routes = [
     path: 'iniciar-sesionprueba',
     loadChildren: () => import('./iniciar-sesionprueba/iniciar-sesionprueba.module').then( m => m.IniciarSesionpruebaPageModule)
   },
+  {
+    path: 'productos-prueba',
+    loadChildren: () => import('./productos-prueba/productos-prueba.module').then( m => m.ProductosPruebaPageModule)
+  },
 ];
 
 @NgModule({
