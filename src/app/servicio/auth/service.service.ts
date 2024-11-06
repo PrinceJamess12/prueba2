@@ -3,7 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import {HeaderLogin} from './../../interfacesPrueba/HeaderLogin';
 import {UsuarioLogin} from './../../interfacesPrueba/UsuarioLogin';
 import {BehaviorSubject} from 'rxjs'; 
-
+import {Router} from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
@@ -16,7 +16,8 @@ export class ServiceService {
   private $cargando = new BehaviorSubject<boolean>(false);
   public cargando = this.$cargando.asObservable();
   constructor(
-    private http: HttpClient
+    private http: HttpClient,
+    private router: Router
   ) { 
 
 
@@ -38,6 +39,7 @@ export class ServiceService {
       this.accessToken = resultado.accessToken;
       this.$cargando.next(false);
       console.log(resultado);
+      this.router.navigate(['/','productos'])
     });
   }
 
