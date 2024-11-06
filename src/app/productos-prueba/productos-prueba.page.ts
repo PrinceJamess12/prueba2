@@ -25,5 +25,6 @@ export class ProductosPruebaPage implements OnInit {
     })
     this.pro.listarProductos()
   }
+  
 
 }

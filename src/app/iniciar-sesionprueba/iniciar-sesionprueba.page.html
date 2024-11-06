@@ -9,7 +9,7 @@
         <ion-card>
           <ion-card-header>
             <div class="ion-text-center">
-              <img src="assets/imgs/welcome.png" alt="Bienvenido" class="welcome-image">
+              <img src="/assets/icon/imagenlogin.png">
             </div>
             <ion-card-title class ="ion-text-center">
               Bienvenido
@@ -28,6 +28,12 @@
                       <ion-input formControlName="contrasenia" value="michaelwpass"label="Contraseña" labelPlacement="floating" fill="outline" type="password"></ion-input> 
                     </ion-col> 
                   </ion-row>
+                  <ion-toggle>
+                    <ion-card-title class ="ion-text-center">
+                      Recuerdame
+                    </ion-card-title> 
+
+                  </ion-toggle><br /><br />
                   <ion-row>
                   <ion-col>
                     <ion-button role="submit" type="submit" expand="block" [disabled]="cargando_bloqueo"> 

@@ -10,24 +10,19 @@
       <ion-button (click)="cargandoProducto(-1)">anterior</ion-button>
       <ion-button (click)="cargandoProducto(+1)">avanzar</ion-button>
   </ion-item>
+  <ion-list>
+    <ion-item *ngFor="let reg of lProductos">
+      <ion-thumbnail slot="start">
+        <img [src]="reg.thumbnail" alt="Imagen del producto" />
+      </ion-thumbnail>
+      
+      <ion-label>
+        <h2>{{ reg.title }}</h2>     
+        <p>{{ reg.price | currency }}</p>   
+        <p>{{ reg.discountPercentage }}%</p>
+      </ion-label>
 
-<ion-list padding>
-
-  <ion-item *ngFor="let reg of lProductos">
-
-    <ion-thumbnail>
-      <img alt="Silhouette of mountains" src="{{reg.thumbnail}}" />
-    </ion-thumbnail>
-    <ion-label>{{reg.id}}</ion-label>
-    <ion-label>{{reg.price}}</ion-label>
-
-    <ion-icon name="chevron-forward-outline"></ion-icon>
-
-  </ion-item>
-
-</ion-list>
-
-
- 
-
+      <ion-icon name="chevron-forward-outline" slot="end"></ion-icon>
+    </ion-item>
+  </ion-list>
 </ion-content>
