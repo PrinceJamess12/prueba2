@@ -11,6 +11,10 @@ const routes: Routes = [
     redirectTo: 'home',
     pathMatch: 'full'
   },
+  {
+    path: 'iniciar-sesionprueba',
+    loadChildren: () => import('./iniciar-sesionprueba/iniciar-sesionprueba.module').then( m => m.IniciarSesionpruebaPageModule)
+  },
 ];
 
 @NgModule({

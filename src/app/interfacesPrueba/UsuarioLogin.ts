@@ -7,5 +7,4 @@ export interface UsuarioLogin {
     gender: string;
     image: string;
     accessToken: string;
-    refreshToken: string;
 }
