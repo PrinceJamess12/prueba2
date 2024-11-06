@@ -39,7 +39,7 @@ export class ServiceService {
       this.accessToken = resultado.accessToken;
       this.$cargando.next(false);
       console.log(resultado);
-      this.router.navigate(['/','productos'])
+      this.router.navigate(['/','productos']);
     });
   }
 
